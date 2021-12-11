@@ -2,9 +2,7 @@
 
 from sys import argv
 
-import requests
 import urllib3
-import pdb
 
 from utility import *
 

