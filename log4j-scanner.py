@@ -14,6 +14,7 @@ urllib3.disable_warnings()
 
 if __name__ == "__main__":
     try:
+        counter = 0
         script_name = argv[0]
         url_file = argv[1]
         burp_colab_string = argv[2]
