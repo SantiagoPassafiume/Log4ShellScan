@@ -25,5 +25,7 @@ if __name__ == "__main__":
         urls = open_file(url_file)
         start_message()
         payload_sender(urls, server_string)
+        print(f"{Fore.LIGHTMAGENTA_EX}The scan has finished!")
+
     except:
         print(f"{Fore.RED}[!] Syntax: python3 {script_name} <url_file> <server_string>")
