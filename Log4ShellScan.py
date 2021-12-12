@@ -1,6 +1,6 @@
 #!/bin/python3
 
-# Title: log4j-scanner
+# Title: Log4ShellScan
 # Author: Santiago Passafiume
 # License: MIT
 # Github: https://github.com/SantiagoPassafiume
