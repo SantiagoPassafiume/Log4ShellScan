@@ -1,5 +1,6 @@
 import requests
 from colorama import Fore
+from performance import performance
 
 
 def open_file(file):
@@ -44,6 +45,7 @@ def send_payload(url, server_string):
     requests.get(url, headers=headers, params=params, verify=False, timeout=10)
 
 
+@performance
 def payload_sender(urls, server_string):
     """
     Receives 2 parameters: an iterable that contains multiple urls (in this case from a file) and a server_string that it's going to use to receive the response from the vulnerable website.
