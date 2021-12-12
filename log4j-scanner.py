@@ -15,10 +15,7 @@ if __name__ == "__main__":
         url_file = argv[1]
         server_string = argv[2]
         urls = open_file(url_file)
-        print(f"{Fore.GREEN}**************************")
-        print(f"{Fore.GREEN}Initializing log4j-scanner")
-        print(f"{Fore.GREEN}**************************")
-        print("\n")
+        start_message()
         payload_sender(urls, server_string)
     except:
         print(

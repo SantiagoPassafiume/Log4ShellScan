@@ -59,3 +59,13 @@ def payload_sender(urls, server_string):
             send_payload(url, server_string)
     except:
         print(f"{Fore.RED}SOMETHING WENT WRONG.")
+
+
+def start_message():
+    """
+    It accepts no parameters, and it just prints the first message that the user sees when they run the script.
+    """
+    print(f"{Fore.GREEN}**************************")
+    print(f"{Fore.GREEN}Initializing log4j-scanner")
+    print(f"{Fore.GREEN}**************************")
+    print("\n")
