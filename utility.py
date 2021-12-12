@@ -1,4 +1,6 @@
 import requests
+from colorama import Fore
+from requests.models import ReadTimeoutError
 
 # import concurrent.futures
 
@@ -28,7 +30,7 @@ def send_payload(url, burp_colab_string):
         "X-Real-IP": payload,
     }
     stripped_url = url.strip()
-    print(stripped_url)
+    print(f"{Fore.BLUE}{stripped_url}")
     requests.get(url, headers=headers, params=params, verify=False, timeout=10)
 
 
@@ -39,4 +41,4 @@ def payload_sender(urls, burp_colab_string):
         for url in urls:
             send_payload(url, burp_colab_string)
     except:
-        print("SOMETHING WENT WRONG.")
+        print(f"{Fore.RED}SOMETHING WENT WRONG.")

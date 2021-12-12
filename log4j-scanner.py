@@ -1,6 +1,7 @@
 #!/bin/python3
 import urllib3
 from sys import argv
+from colorama import Fore
 from utility import *
 
 
@@ -14,8 +15,12 @@ if __name__ == "__main__":
         url_file = argv[1]
         burp_colab_string = argv[2]
         urls = open_file(url_file)
+        print(f"{Fore.GREEN}**************************")
+        print(f"{Fore.GREEN}Initializing log4j-scanner")
+        print(f"{Fore.GREEN}**************************")
+        print("\n")
         payload_sender(urls, burp_colab_string)
     except:
         print(
-            f"[!] Syntax: python3 {script_name} <url_file> <server/burp_collaborator string>"
+            f"{Fore.RED}[!] Syntax: python3 {script_name} <url_file> <server/burp_collaborator string>"
         )
