@@ -26,4 +26,16 @@ if __name__ == "__main__":
         start_message()
         payload_sender(urls, server_string)
     except:
-        print(f"{Fore.RED}[!] Syntax: python3 {script_name} <url_file> <server_string>")
+        print(
+            f"""
+{Fore.RED}Syntax: 
+
+Option 1:
+python3 Log4ShellScan.py <url_file> <server_string>
+
+
+Option 2:
+1 - chmod +x Log4ShellScan.py
+2 - ./Log4ShellScan.py <url_file> <server_string>
+"""
+        )
