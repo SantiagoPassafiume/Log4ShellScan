@@ -8,7 +8,7 @@
 ## Download Log4ShellScan
 
 ```sh
-wget https://github.com/SantiagoPassafiume/Log4ShellScan.git
+git clone https://github.com/SantiagoPassafiume/Log4ShellScan.git
 ```
 
 ## Running Log4ShellScan
