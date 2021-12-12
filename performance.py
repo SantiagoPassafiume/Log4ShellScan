@@ -9,9 +9,8 @@ def performance(func):
         finish_time = time()
         seconds = round(finish_time - start_time, 2)
         colored_seconds = f"{Fore.LIGHTMAGENTA_EX}{seconds}"
-        print(
-            f"{Fore.GREEN}The script has finished, and it took {colored_seconds} seconds"
-        )
+        message = f"{Fore.GREEN}The script has finished, and it took {colored_seconds} seconds"
+        print(message)
         return result
 
     return wrapper
