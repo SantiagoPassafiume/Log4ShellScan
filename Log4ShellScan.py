@@ -7,13 +7,13 @@
 # Description: This script goes through a file containing urls and sends a GET request with the proper payload to each of them, checking if they're vulnerable to "Log4Shell" (CVE-2021-44228).
 
 
-import urllib3
+from urllib3 import disable_warnings
 from sys import argv
 from colorama import Fore
 from utility import *
 
 
-urllib3.disable_warnings()
+disable_warnings()
 
 
 if __name__ == "__main__":
