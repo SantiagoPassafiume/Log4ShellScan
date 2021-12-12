@@ -1,8 +1,6 @@
 import requests
 from colorama import Fore
 
-# import concurrent.futures
-
 
 def open_file(file):
     """
@@ -53,12 +51,10 @@ def payload_sender(urls, server_string):
     Then it iterates over the iterable that was provided through the "urls" parameter, and for each item on it, it'll call the "send_payload" with both the item and the "server_string".
     """
     try:
-        # with concurrent.futures.ThreadPoolExecutor() as executor:
-        #     executor.map(send_payload, urls, burp_colab_string)
         for url in urls:
             send_payload(url, server_string)
     except:
-        print(f"{Fore.RED}SOMETHING WENT WRONG.")
+        pass
 
 
 def start_message():
@@ -66,6 +62,6 @@ def start_message():
     It accepts no parameters, and it just prints the first message that the user sees when they run the script.
     """
     print(f"{Fore.GREEN}**************************")
-    print(f"{Fore.GREEN}Initializing log4j-scanner")
+    print(f"{Fore.GREEN}Initializing Log4ShellScan")
     print(f"{Fore.GREEN}**************************")
     print("\n")
