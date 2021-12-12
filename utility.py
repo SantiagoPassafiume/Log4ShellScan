@@ -1,5 +1,6 @@
 import requests
-import concurrent.futures
+
+# import concurrent.futures
 
 
 def open_file(file):
@@ -33,7 +34,9 @@ def send_payload(url, burp_colab_string):
 
 def payload_sender(urls, burp_colab_string):
     try:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            executor.map(send_payload, urls, burp_colab_string)
+        # with concurrent.futures.ThreadPoolExecutor() as executor:
+        #     executor.map(send_payload, urls, burp_colab_string)
+        for url in urls:
+            send_payload(url, burp_colab_string)
     except:
-        print("SOMETHING WENT WRONG (proper error handling not implemented yet).")
+        print("SOMETHING WENT WRONG.")

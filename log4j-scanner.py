@@ -1,9 +1,6 @@
 #!/bin/python3
-
-from sys import argv
-
 import urllib3
-
+from sys import argv
 from utility import *
 
 
