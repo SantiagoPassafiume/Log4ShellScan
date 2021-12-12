@@ -8,22 +8,22 @@
 ## Download Log4ShellScan
 
 ```sh
-    wget https://github.com/SantiagoPassafiume/Log4ShellScan.git
+wget https://github.com/SantiagoPassafiume/Log4ShellScan.git
 ```
 
 ## Running Log4ShellScan
 
-There are 2 ways of running this program
+There are 2 ways of running this program:
 
 #### 1 - Standard way with python
 
 ```sh
-    python3 Log4ShellScan.py <url_file> <server_string>
+python3 Log4ShellScan.py <url_file> <server_string>
 ```
 
 #### 2 - Without calling python directly
 
 ```sh
-    chmod +x Log4ShellScan.py
-    ./Log4ShellScan.py <url_file> <server_string>
+chmod +x Log4ShellScan.py
+./Log4ShellScan.py <url_file> <server_string>
 ```
