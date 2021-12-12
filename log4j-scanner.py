@@ -1,4 +1,12 @@
 #!/bin/python3
+
+# Title: log4j-scanner
+# Author: Santiago Passafiume
+# License: MIT
+# Github: https://github.com/SantiagoPassafiume
+# Description: This script goes through a file containing urls and sends a GET request with the proper payload to each of them, checking if they're vulnerable to "Log4Shell" (CVE-2021-44228).
+
+
 import urllib3
 from sys import argv
 from colorama import Fore
@@ -18,6 +26,4 @@ if __name__ == "__main__":
         start_message()
         payload_sender(urls, server_string)
     except:
-        print(
-            f"{Fore.RED}[!] Syntax: python3 {script_name} <url_file> <server/burp_collaborator string>"
-        )
+        print(f"{Fore.RED}[!] Syntax: python3 {script_name} <url_file> <server_string>")
